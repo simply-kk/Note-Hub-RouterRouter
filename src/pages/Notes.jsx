@@ -9,8 +9,8 @@ const Notes = () => {
     <section>
       <header className="notes-header">
         <h2>My Notes</h2>
-        <input type="text" autoFocus placeholder="Keyword..." />
-        <button className="btn">
+        {/* <input type="text" autoFocus placeholder="Keyword..." /> */}
+        <button className="search_btn">
           <CiSearch />
         </button>
       </header>
@@ -19,7 +19,7 @@ const Notes = () => {
           <NoteItem key={note.id} note={note} />
         ))}
       </div>
-      <Link className="add__btn">
+      <Link className=" btn add__btn">
         <BsPlusLg />
       </Link>
     </section>
