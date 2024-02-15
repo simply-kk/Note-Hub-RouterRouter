@@ -1,17 +1,52 @@
 import { Link } from "react-router-dom";
 import { IoIosArrowDropleftCircle } from "react-icons/io";
-const CreateNotes = () => {
+import { useState } from "react";
+import { v4 as uuid } from "uuid";
+import useCreateDate from "../components/useCreateDate";
+
+const CreateNotes = ({setNotes}) => {
+  const [title, setTitle] = useState("");
+  const [details, setDetails] = useState("");
+  const date = useCreateDate();
+
+  const handleSumbit = (e) => {
+    e.preventDefault();
+
+    if (title && details) {
+      const note = {
+        id: uuid(),
+        title,
+        details,
+        date,
+      };
+      //! add this note  to the existing array of notes or create a new one?
+      setNotes((prevNotes) => [note, ...prevNotes]);
+      console.log(note);
+    }
+  };
+
   return (
     <section>
       <header className="create-note__header">
         <Link to="/" className="btn">
-         <IoIosArrowDropleftCircle />
+          <IoIosArrowDropleftCircle />
         </Link>
-        <button className="btn lg primary">Save</button>
+        <button className="btn lg primary" onClick={handleSumbit}>
+          Save
+        </button>
       </header>
-      <form className="create-note__form">
-        <input type="text" autoFocus placeholder="Title" />
-        <textarea rows="30" placeholder="Note Details"></textarea>
+      <form className="create-note__form" onSubmit={handleSumbit}>
+        <input
+          type="text"
+          autoFocus
+          placeholder="Title"
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <textarea
+          rows="30"
+          placeholder="Note Details"
+          onChange={(e) => setDetails(e.target.value)}
+        ></textarea>
       </form>
     </section>
   );
