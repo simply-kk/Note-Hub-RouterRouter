@@ -56,10 +56,10 @@ const useCreateDate = () => {
   let monthName;
   switch (month) {
     case 0:
-      monthName = "January";
+      monthName = "Jan";
       break;
     case 1:
-      monthName = "February";
+      monthName = "Feb";
       break;
     case 2:
       monthName = "March";
@@ -77,26 +77,26 @@ const useCreateDate = () => {
       monthName = "July";
       break;
     case 7:
-      monthName = "August";
+      monthName = "Aug";
       break;
     case 8:
-      monthName = "September";
+      monthName = "Sept";
       break;
     case 9:
-      monthName = "October";
+      monthName = "Oct";
       break;
     case 10:
-      monthName = "November";
+      monthName = "Nov";
       break;
     case 11:
-      monthName = "December";
+      monthName = "Dec";
       break;
   }
 
   const hours = String(dateObj.getHours()).padStart(2, "0");
   const minutes = String(dateObj.getMinutes()).padStart(2, "0");
 
-  const date = `${monthName} ${dateObj.getDate()}, ${dateObj.getFullYear()} at ${hours}:${minutes}.`;
+  const date = `${monthName} ${dateObj.getDate()}, ${dateObj.getFullYear()} [${hours}:${minutes}]`;
   return date;
 };
 

@@ -6,10 +6,14 @@ import { useState, useEffect } from "react";
 // import dummyNotes from "./dummy_notes";
 
 const App = () => {
-  const [notes, setNotes] = useState([]);
-  console.log(notes);
+  const [notes, setNotes] = useState(
+    JSON.parse(localStorage.getItem("notes")) || []
+  );
+  // console.log(notes);
 
-
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [notes]);
 
   return (
     <main id="app">
@@ -20,7 +24,11 @@ const App = () => {
             path="/create-note"
             element={<CreateNotes setNotes={setNotes} />}
           />
-          <Route path="/edit-notes" element={<EditNotes />} />
+          <Route
+            path="/edit-note/:id"
+            element={<EditNotes notes={notes} setNotes={setNotes} />}
+          />
+         
         </Routes>
       </BrowserRouter>
     </main>

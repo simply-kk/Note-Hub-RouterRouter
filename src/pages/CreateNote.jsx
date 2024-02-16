@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IoIosArrowDropleftCircle } from "react-icons/io";
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
@@ -8,6 +8,7 @@ const CreateNotes = ({setNotes}) => {
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
   const date = useCreateDate();
+  const navigate = useNavigate();
 
   const handleSumbit = (e) => {
     e.preventDefault();
@@ -21,7 +22,10 @@ const CreateNotes = ({setNotes}) => {
       };
       //! add this note  to the existing array of notes or create a new one?
       setNotes((prevNotes) => [note, ...prevNotes]);
-      console.log(note);
+
+      //! redirect to home page
+      navigate('/')
+
     }
   };
 
