@@ -46,7 +46,7 @@ const Notes = ({ notes }) => {
         </button>
       </header>
       <div className="notes__container">
-        {notes.map((note) => (
+        {filteredNotes.map((note) => (
           <NoteItem key={note.id} note={note} />
         ))}
       </div>
