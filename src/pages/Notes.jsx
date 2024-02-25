@@ -39,7 +39,7 @@ const Notes = ({ notes }) => {
           />
         )}
         <button
-          className="search_btn"
+          className="btn"
           onClick={() => setShowSearch((prevState) => !prevState)}
         >
           {showSearch ? <MdClose /> : <CiSearch />}
