@@ -5,14 +5,14 @@ ReactRouterNotes is a simple note-making application built with React and React 
 ***
 
 ### Features
-✏️ Create, read, update, and delete notes
-🔄 Seamless navigation with React Router
-📱 Responsive design for optimal viewing on various devices
-🤝 Contributions welcome!
+* ✏️ Create, read, update, and delete notes
+* 🔄 Seamless navigation with React Router
+* 📱 Responsive design for optimal viewing on various devices
+* 🤝 Contributions welcome!
 
 ***
 ### Technologies Used
-React
-React Router
-HTML
-CSS
+* React
+* React Router
+* HTML
+* CSS
